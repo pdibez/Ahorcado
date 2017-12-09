@@ -6,6 +6,7 @@ class Ahorcado() {
 
     private var listaPalabras : List<Palabra> = listOf()
     private var palabra: Palabra = Palabra("")
+    private var cantidadIntentos = 5
 
     init {
         inicializarPalabras()
@@ -28,11 +29,29 @@ class Ahorcado() {
     }
 
     fun adivinarLetra(letra: String): Boolean {
-        return palabra.esValida(letra)
+        val esValida = palabra.esValida(letra)
+        descontarCantidadIntentos(esValida)
+        return esValida
     }
 
-    fun getPalabra(): Palabra {
-        return palabra
+    fun descontarCantidadIntentos(esValida : Boolean){
+        if (!esValida && cantidadIntentos > 0) --cantidadIntentos
     }
+
+    fun finJuego():Boolean{
+        if (cantidadIntentos == 0 || palabra.adivinada())
+            return true
+        else
+            return false
+    }
+
+    /*
+    Si retorna TRUE es gano
+    sino retorna FALSE y significa que perdio
+    * */
+    fun resultadoJuego() = palabra.adivinada()
+
+    fun getPalabra(): Palabra { return palabra }
+    fun getCantidadIntentos(): Int { return cantidadIntentos }
 
 }

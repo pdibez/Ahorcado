@@ -2,7 +2,7 @@ package com.example.pablo.ahorcado
 
 class Palabra(var letras: MutableList<Letra>) {
 
-    constructor(palabra: String) : this(mutableListOf()) { //crea una lista de Letra vacio
+    constructor(palabra: String) : this(mutableListOf()) {
         val caracteres: CharArray = palabra.toCharArray() // convierte cadena @palabra en un array de caracteres
 
         for (c in caracteres) {
@@ -10,7 +10,8 @@ class Palabra(var letras: MutableList<Letra>) {
         }
     }
 
-    /* Verifica si letra ingresada esta en la palabra o no
+    /*
+    * Verifica si letra ingresada esta en la palabra o no
     * */
     fun esValida(letra: String): Boolean {
         var esValida = false
@@ -23,6 +24,21 @@ class Palabra(var letras: MutableList<Letra>) {
         }
 
         return esValida
+    }
+
+    /*
+     *   Retorna true si la palabra fue adivinida
+     */
+    fun adivinada():Boolean{
+        var adivinada = true
+
+        for(l in letras){
+            if (!l.acertada){
+                adivinada = false
+            }
+        }
+
+        return adivinada
     }
 
     fun mostrarPalabra(): String {
