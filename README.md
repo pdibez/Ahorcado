@@ -19,4 +19,5 @@ Recrear el conocido juego "Ahorcado" en una version de plataforma móvil.
 
 ## Preview
 
-![](https://user-images.githubusercontent.com/16173731/33796896-7fccea76-dcdc-11e7-9491-9c206830ae6e.gif)
+![](https://user-images.githubusercontent.com/16173731/33797824-5982684e-dced-11e7-9be8-bb3a9da04838.gif)
+
