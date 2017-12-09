@@ -18,11 +18,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        palabra.text = juego.getPalabra().mostrarPalabra()
+        actualizarPalabra()
 
         adivinar.setOnClickListener{
             adivinarLetra()
+            actualizarPalabra()
         }
+    }
+
+    private fun actualizarPalabra(){
+        palabra.text = juego.getPalabra().mostrarPalabra()
     }
 
     private fun adivinarLetra(){
@@ -30,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         val mensaje : String
 
         if (juego.adivinarLetra(letraIngresada)) {
-            //palabra.text = juego.getPalabra().mostrarPalabra()
             mensaje = "La letra es correcta"
         }
         else {
