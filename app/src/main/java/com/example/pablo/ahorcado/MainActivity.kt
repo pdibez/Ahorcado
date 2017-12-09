@@ -30,13 +30,14 @@ class MainActivity : AppCompatActivity() {
         val mensaje : String
 
         if (juego.adivinarLetra(letraIngresada)) {
+            //palabra.text = juego.getPalabra().mostrarPalabra()
             mensaje = "La letra es correcta"
         }
         else {
             mensaje = "La letra es incorrecta"
         }
 
-        Toast.makeText(this,mensaje,Toast.LENGTH_LONG).show();
+        Toast.makeText(this,mensaje,Toast.LENGTH_LONG).show()
     }
 
 }
