@@ -28,14 +28,13 @@ class Ahorcado() {
         palabra = listaPalabras.get(i)
     }
 
-    fun adivinarLetra(letra: String): Boolean {
+    fun adivinarLetra(letra: String) {
         val esValida = palabra.esValida(letra)
         descontarCantidadIntentos(esValida)
-        return esValida
     }
 
     fun descontarCantidadIntentos(esValida : Boolean){
-        if (!esValida && cantidadIntentos > 0) --cantidadIntentos
+        if (!esValida && cantidadIntentos > 0 && !finJuego()) --cantidadIntentos
     }
 
     fun finJuego():Boolean{

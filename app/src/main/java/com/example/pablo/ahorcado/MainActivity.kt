@@ -2,6 +2,7 @@ package com.example.pablo.ahorcado
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 
 import android.widget.Toast
 
@@ -40,16 +41,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun adivinarLetra(){
-
         val letraIngresada = letra.text.toString()
-        val mensaje = if (juego.adivinarLetra(letraIngresada)) "La letra es correcta" else "La letra es incorrecta"
-
-        Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show()
+        juego.adivinarLetra(letraIngresada)
     }
 
     private fun mensajeFinJuego(){
-        val mensaje = if (juego.resultadoJuego()) "Felicitaciones GANASTE!!!" else "Ups.. PERDISTE"
-        if (juego.finJuego()) Toast.makeText(this,mensaje,Toast.LENGTH_LONG).show()
+        val mensaje = if (juego.resultadoJuego()) "Felicitaciones GANASTE!!!" else "Ups...PERDISTE"
+        val dialogo = AlertDialog.Builder(this).create()
+
+        if (juego.finJuego()) {
+            adivinar.setEnabled(false)
+            letra.setEnabled(false)
+            dialogo.setMessage(mensaje)
+            dialogo.show()
+        }
     }
 
     private fun limpiarLetra(){
