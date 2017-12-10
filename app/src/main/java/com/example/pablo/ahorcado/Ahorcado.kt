@@ -5,7 +5,7 @@ import java.util.*
 class Ahorcado() {
 
     private var listaPalabras : List<Palabra> = listOf()
-    private var palabra: Palabra = Palabra("")
+    private var palabra: Palabra = Palabra("","")
     private var cantidadIntentos = 5
 
     init {
@@ -15,9 +15,12 @@ class Ahorcado() {
 
     fun inicializarPalabras(){
         /*TO DO LIST traer datos de la DB*/
-        listaPalabras = listOf( Palabra("informatica"),
-                                Palabra("pc"),
-                                Palabra("CPU"))
+        listaPalabras = listOf( Palabra("Informatica","Ciencia que estudia métodos, técnicas, procesos, con el fin de almacenar, procesar y transmitir información y datos en formato digital."),
+                                Palabra("PC","Registro del procesador de un computador que indica la posición donde está el procesador en su secuencia de instrucciones. "),
+                                Palabra("CPU","Dispositivo dentro de un ordenador u otros dispositivos programables, que interpreta las instrucciones de un programa informático mediante la realización de las operaciones básicas aritméticas, lógicas y de entrada/salida del sistema."),
+                                Palabra("Memoria","Dispositivo que retiene, memoriza o almacena datos informáticos durante algún período de tiempo."),
+                                Palabra("Perifericos","Conjunto de dispositivos que sin pertenecer al núcleo fundamental de la computadora, formado por la unidad central de procesamiento (CPU) y la memoria central, permitan realizar operaciones de entrada/salida (E/S) complementarias al proceso de datos que realiza la CPU. ")
+                              )
     }
 
     fun sortearPalabra() {

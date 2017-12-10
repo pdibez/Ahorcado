@@ -1,13 +1,14 @@
 package com.example.pablo.ahorcado
 
-class Palabra(var letras: MutableList<Letra>) {
+class Palabra(var letras: MutableList<Letra>,private var definicion : String) {
 
-    constructor(palabra: String) : this(mutableListOf()) {
+    constructor(palabra: String,definicion: String) : this(mutableListOf(),"") {
         val caracteres: CharArray = palabra.toCharArray() // convierte cadena @palabra en un array de caracteres
 
         for (c in caracteres) {
-            letras.add(LetraOculta(c.toString())) //inicialmente todas las letras son ocultas
+            letras.add(LetraOculta(c.toString())) //inicialmente todas las letras estan ocultas
         }
+        this.definicion = definicion
     }
 
     /*
@@ -49,4 +50,6 @@ class Palabra(var letras: MutableList<Letra>) {
         }
         return palabra
     }
+
+    fun getDefinicion() : String {return definicion}
 }
