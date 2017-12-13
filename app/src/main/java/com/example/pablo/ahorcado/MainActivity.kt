@@ -33,6 +33,10 @@ class MainActivity : AppCompatActivity() {
             ocultarTeclado()
             finJuego()
         }
+
+        nuevo.setOnClickListener(){
+            nuevoJuego()
+        }
     }
 
     private fun visualizarPalabra(){
@@ -80,12 +84,23 @@ class MainActivity : AppCompatActivity() {
         dialogo.setButton(AlertDialog.BUTTON_POSITIVE,
                          "SALIR",
                           { _, _ -> dialogo.cancel()})
+        dialogo.setButton(AlertDialog.BUTTON_NEUTRAL,
+                         "NUEVO",
+                         {_,_->nuevoJuego()})
         dialogo.show()
     }
 
     private fun ocultarTeclado(){
         val teclado = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         teclado.hideSoftInputFromWindow(letra.getWindowToken(), 0)
+    }
+
+    private fun nuevoJuego(){
+        juego.nuevoJuego()
+        visualizarPalabra()
+        visualizarIntentos()
+        adivinar.visibility = View.VISIBLE
+        letra.visibility = View.VISIBLE
     }
 
 }

@@ -47,7 +47,8 @@ class Ahorcado() {
     }
 
     fun nuevoJuego(){
-        Ahorcado()
+        cantidadIntentos = 5
+        sortearPalabra()
     }
 
     /*
