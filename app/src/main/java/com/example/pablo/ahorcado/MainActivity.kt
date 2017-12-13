@@ -81,10 +81,10 @@ class MainActivity : AppCompatActivity() {
 
         dialogo.setTitle(titulo)
         dialogo.setMessage(mensaje)
-        dialogo.setButton(AlertDialog.BUTTON_POSITIVE,
+        dialogo.setButton(AlertDialog.BUTTON_NEGATIVE,
                          "SALIR",
                           { _, _ -> dialogo.cancel()})
-        dialogo.setButton(AlertDialog.BUTTON_NEUTRAL,
+        dialogo.setButton(AlertDialog.BUTTON_POSITIVE,
                          "NUEVO",
                          {_,_->nuevoJuego()})
         dialogo.show()
