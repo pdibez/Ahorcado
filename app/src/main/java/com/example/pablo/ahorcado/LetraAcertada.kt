@@ -6,4 +6,8 @@ class LetraAcertada(override var letra: String, override var acertada: Boolean =
         return letra;
     }
 
+    override fun verLetra(): String {
+        return letra
+    }
+
 }

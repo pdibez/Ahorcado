@@ -6,4 +6,8 @@ class LetraOculta(override var letra: String, override var acertada: Boolean = f
         return " _ ";
     }
 
+    override fun verLetra(): String {
+        return letra
+    }
+
 }

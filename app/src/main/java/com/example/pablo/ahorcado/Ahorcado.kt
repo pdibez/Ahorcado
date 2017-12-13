@@ -24,7 +24,6 @@ class Ahorcado() {
     }
 
     fun sortearPalabra() {
-
         val aleatorio = Random()
         val i = aleatorio.nextInt(listaPalabras.size)
 
@@ -45,6 +44,10 @@ class Ahorcado() {
             return true
         else
             return false
+    }
+
+    fun nuevoJuego(){
+        Ahorcado()
     }
 
     /*

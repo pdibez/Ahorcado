@@ -51,5 +51,15 @@ class Palabra(var letras: MutableList<Letra>,private var definicion : String) {
         return palabra
     }
 
+    /*A diferencia de mostrarPalabra(), este metodo retorna la palabra con sus caracteres en letras*/
+    fun verPalabra(): String {
+        var palabra = ""
+
+        for (l in letras) {
+            palabra += l.verLetra()
+        }
+        return palabra
+    }
+
     fun getDefinicion() : String {return definicion}
 }

@@ -1,5 +1,8 @@
 package com.example.pablo.ahorcado
 
+import android.app.Dialog
+import android.content.Context
+import android.content.DialogInterface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
@@ -9,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val juego = Ahorcado()
+    private var juego = Ahorcado()
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -33,7 +36,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun visualizarIntentos(){
-        intentos.text = "Intentos : "+juego.getCantidadIntentos().toString()
+        val cantidadIntentos = juego.getCantidadIntentos().toString()
+        intentos.text = "Intentos : $cantidadIntentos"
     }
 
     private fun adivinarLetra(){
@@ -42,27 +46,40 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun finJuego(){
-        val mensaje = if (juego.resultadoJuego()) "Felicitaciones GANASTE!!!" else "Ups...PERDISTE"
-        val dialogo = AlertDialog.Builder(this).create()
+        val palabra = juego.getPalabra().verPalabra()
 
         if (juego.finJuego()) {
 
             adivinar.visibility = View.INVISIBLE
             letra.visibility = View.INVISIBLE
 
-            dialogo.setTitle("Fin del Juego")
-            dialogo.setMessage(mensaje)
-            dialogo.show()
-
-            if (juego.resultadoJuego()) {
-                definicion.visibility = View.VISIBLE
+            if (juego.resultadoJuego()) { //gano
+                mostrarDialogo("Fin del Juego","Felicitaciones adivinaste la palabra")
                 definicion.text = juego.getPalabra().getDefinicion()
+                definicion.visibility = View.VISIBLE
             }
+            else{ //perdio
+                mostrarDialogo("Fin del Juego","Ups...Perdiste. La palabra era $palabra")
+            }
+
+
+
         }
     }
 
     private fun limpiarLetra(){
         letra.text.clear()
+    }
+
+    private fun mostrarDialogo(titulo:String,mensaje:String){
+        val dialogo = AlertDialog.Builder(this).create()
+
+        dialogo.setTitle(titulo)
+        dialogo.setMessage(mensaje)
+        dialogo.setButton(AlertDialog.BUTTON_POSITIVE,
+                         "SALIR",
+                          { _, _ -> dialogo.cancel()})
+        dialogo.show()
     }
 
 }

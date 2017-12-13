@@ -6,5 +6,6 @@ interface Letra {
     var acertada : Boolean
 
     fun mostrarLetra() : String
+    fun verLetra() : String
 
 }
