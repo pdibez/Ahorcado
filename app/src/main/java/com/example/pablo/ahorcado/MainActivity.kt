@@ -5,8 +5,11 @@ import android.content.Context
 import android.content.DialogInterface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.renderscript.ScriptGroup
 import android.support.v7.app.AlertDialog
+import android.text.InputType
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -27,6 +30,7 @@ class MainActivity : AppCompatActivity() {
             visualizarPalabra()
             visualizarIntentos()
             limpiarLetra()
+            ocultarTeclado()
             finJuego()
         }
     }
@@ -61,9 +65,6 @@ class MainActivity : AppCompatActivity() {
             else{ //perdio
                 mostrarDialogo("Fin del Juego","Ups...Perdiste. La palabra era $palabra")
             }
-
-
-
         }
     }
 
@@ -80,6 +81,11 @@ class MainActivity : AppCompatActivity() {
                          "SALIR",
                           { _, _ -> dialogo.cancel()})
         dialogo.show()
+    }
+
+    private fun ocultarTeclado(){
+        val teclado = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        teclado.hideSoftInputFromWindow(letra.getWindowToken(), 0)
     }
 
 }
