@@ -48,6 +48,7 @@ class Ahorcado() {
 
     fun nuevoJuego(){
         cantidadIntentos = 5
+        inicializarPalabras()
         sortearPalabra()
     }
 

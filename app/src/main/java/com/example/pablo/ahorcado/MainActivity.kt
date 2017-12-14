@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         dialogo.setTitle(titulo)
         dialogo.setMessage(mensaje)
         dialogo.setButton(AlertDialog.BUTTON_NEGATIVE,
-                         "SALIR",
+                         "VOLVER",
                           { _, _ -> dialogo.cancel()})
         dialogo.setButton(AlertDialog.BUTTON_POSITIVE,
                          "NUEVO",
@@ -99,8 +99,10 @@ class MainActivity : AppCompatActivity() {
         juego.nuevoJuego()
         visualizarPalabra()
         visualizarIntentos()
+        definicion.visibility = View.INVISIBLE
         adivinar.visibility = View.VISIBLE
         letra.visibility = View.VISIBLE
+
     }
 
 }

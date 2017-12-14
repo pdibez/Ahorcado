@@ -18,7 +18,7 @@ class Palabra(var letras: MutableList<Letra>,private var definicion : String) {
         var esValida = false
 
         for (l in letras){
-            if ((l.letra).equals(letra)) {
+            if ((l.letra.toUpperCase()).equals(letra.toUpperCase())) {
                 letras.set(letras.indexOf(l),LetraAcertada(l.letra))
                 esValida = true
             }
