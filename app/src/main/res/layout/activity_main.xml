@@ -34,11 +34,14 @@
         android:inputType="textShortMessage|textPersonName"
         android:maxLength="1"
         android:minLines="1"
+        android:textColorHighlight="@color/colorPrimaryDark"
         android:textColorLink="@android:color/black"
+        android:textCursorDrawable="@color/colorPrimaryDark"
         app:layout_constraintEnd_toStartOf="@+id/adivinar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/palabra"
-        tools:ignore="RtlCompat" />
+        tools:ignore="RtlCompat"
+        tools:singleLine="false" />
 
     <Button
         android:id="@+id/adivinar"
@@ -78,8 +81,9 @@
         android:layout_marginStart="22dp"
         android:layout_marginTop="8dp"
         android:scrollHorizontally="false"
-        android:textAlignment="viewStart"
+        android:textAlignment="gravity"
         android:textSize="18sp"
+        android:textStyle="bold"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,7 +99,8 @@
         android:layout_marginBottom="39dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="+"
+        android:text="NUEVO"
+        android:textColorLink="@color/colorPrimaryDark"
         app:layout_constraintBottom_toTopOf="@+id/palabra"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

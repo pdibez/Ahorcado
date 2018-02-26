@@ -23,12 +23,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         visualizarPalabra()
+        visualizarDefinicion()
         visualizarIntentos()
 
         adivinar.setOnClickListener{
             adivinarLetra()
+
             visualizarPalabra()
             visualizarIntentos()
+
             limpiarLetra()
             ocultarTeclado()
             finJuego()
@@ -62,9 +65,7 @@ class MainActivity : AppCompatActivity() {
             letra.visibility = View.INVISIBLE
 
             if (juego.resultadoJuego()) { //gano
-                mostrarDialogo("Fin del Juego","Felicitaciones adivinaste la palabra")
-                definicion.text = juego.getPalabra().getDefinicion()
-                definicion.visibility = View.VISIBLE
+                mostrarDialogo("Fin del Juego","¡¡¡Felicitaciones adivinaste la palabra!!!")
             }
             else{ //perdio
                 mostrarDialogo("Fin del Juego","Ups...Perdiste. La palabra era $palabra")
@@ -72,11 +73,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun visualizarDefinicion() {
+        definicion.text = juego.getPalabra().getDefinicion()
+        definicion.visibility = View.VISIBLE
+    }
+
     private fun limpiarLetra(){
         letra.text.clear()
     }
 
     private fun mostrarDialogo(titulo:String,mensaje:String){
+
         val dialogo = AlertDialog.Builder(this).create()
 
         dialogo.setTitle(titulo)
@@ -97,9 +104,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun nuevoJuego(){
         juego.nuevoJuego()
+
         visualizarPalabra()
         visualizarIntentos()
-        definicion.visibility = View.INVISIBLE
+        visualizarDefinicion()
+
         adivinar.visibility = View.VISIBLE
         letra.visibility = View.VISIBLE
 
